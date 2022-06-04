@@ -1,0 +1,14 @@
+[Unit]
+Description=Java app service
+StartLimitInterval=30
+StartLimitBurst=3
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/
+ExecStart=/usr/bin/java -jar ./app.jar ./output.log "Service is working!"
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
